@@ -7,6 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "../context/ThemeContext";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import dailyForgeLogo from "../assets/logo.png";
 
 // Utility for merging tailwind classes safely
 function cn(...inputs) {
@@ -141,17 +142,14 @@ const handleLogoutClick = () => {
         <div className="flex justify-between items-center h-16">
           
           {/* Logo Section with Hover Animation */}
-          <Link to={user ? "/dashboard" : "/login"} className="flex items-center gap-2 group focus:outline-none">
-            <motion.div 
-              whileHover={{ rotate: 180 }} 
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="w-8 h-8 rounded-xl bg-linear-to-tr from-[#4eb7b3] to-[#98e1d7] flex items-center justify-center shadow-sm"
-            >
-              <span className="text-white font-bold text-xl leading-none tracking-tighter">D</span>
-            </motion.div>
-            <span className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-[#3b8ea0] to-[#4eb7b3]">
-              DailyForge
-            </span>
+          <Link to={user ? "/dashboard" : "/login"} className="flex items-center focus:outline-none h-16 overflow-visible">
+            <motion.img 
+              whileHover={{ scale: 1.05 }} 
+              transition={{ duration: 0.2 }}
+              src={dailyForgeLogo}
+              alt="DailyForge"
+              className="h-[96px] w-auto object-contain my-[-18px]"
+            />
           </Link>
 
           {/* Desktop Navigation */}
